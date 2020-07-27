@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
             logits = euclidean_metric(model(data_query), proto)
 
-            # modify, to get better result!!!!
+            # Attention, to get better result!!!!
             feature_dims = 1600 # 1600 for miniimagenet, 64 for omniglot
             learnable_scale = torch.nn.Parameter(torch.FloatTensor(1).fill_(1.0),requires_grad=True).cuda()
             logits = learnable_scale * logits / feature_dims
