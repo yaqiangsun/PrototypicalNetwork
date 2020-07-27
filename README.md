@@ -14,8 +14,8 @@ With ConvNet-4 backbone on miniImageNet.
 
 ## Environment
 
-* python 3
-* pytorch 0.4.0
+* python 3.6
+* pytorch 1.2.0
 
 ## Instructions
 
@@ -28,6 +28,7 @@ With ConvNet-4 backbone on miniImageNet.
 ### 1-shot Train
 
 `python train.py`
+(train__bak.py is the origin file, and train.py is modified from train_bak.py, and train.py can get more than 50% 1-shot-5-way acc!!!!)
 
 ### 1-shot Test
 
