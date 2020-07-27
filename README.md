@@ -44,4 +44,14 @@ train__bak.py is the origin file, and train.py is modified from train_bak.py.
 
 ### 5-shot Test
 
-`python test.py --load ./save/proto-5/max-acc.pth --shot 5`
+`python test.py --load ./save/proto-5/max-acc.pth --shot 5`  
+
+
+## Acknowledgment  
+
+The following repos are added in this work.
+
+cyvius96/prototypical-network-pytorch:  https://github.com/cyvius96/prototypical-network-pytorch  
+
+
+
