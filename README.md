@@ -12,6 +12,11 @@ With ConvNet-4 backbone on miniImageNet.
 
 5-shot: 66.9% (68.2% in the paper)
 
+
+train__bak.py is the origin file, and train.py is modified from train_bak.py.
+***train.py can get more than 50% 1-shot-5-way acc!!!!***
+
+
 ## Environment
 
 * python 3.6
@@ -28,7 +33,6 @@ With ConvNet-4 backbone on miniImageNet.
 ### 1-shot Train
 
 `python train.py`
-(train__bak.py is the origin file, and train.py is modified from train_bak.py, and train.py can get more than 50% 1-shot-5-way acc!!!!)
 
 ### 1-shot Test
 
