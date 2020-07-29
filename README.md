@@ -4,9 +4,8 @@ A re-implementation of [Prototypical Network](https://arxiv.org/abs/1703.05175).
 
 With ConvNet-4 backbone on miniImageNet.
 
-***For deep backbones (ResNet), see [Meta-Baseline](https://github.com/cyvius96/few-shot-meta-baseline).***
 
-### Results
+### Results in origin project
 
 1-shot: 49.1% (49.4% in the paper)
 
@@ -14,7 +13,13 @@ With ConvNet-4 backbone on miniImageNet.
 
 
 train__bak.py is the origin file, and train.py is modified from train_bak.py.  
-***train.py can get more than 50% 1-shot-5-way acc!!!!***
+***train.py can get more than 50% 1-shot-5-way acc!!!!***  
+  
+### Results in this project  
+
+1-shot: 50.17% (49.4% in the paper)（you can get the result less than 100 epoch!）  
+
+5-shot: 68.11% (68.2% in the paper)  
 
 
 ## Environment
@@ -40,12 +45,17 @@ train__bak.py is the origin file, and train.py is modified from train_bak.py.
 
 ### 5-shot Train
 
-`python train.py --shot 5 --train-way 20 --save-path ./save/proto-5`
+`python train.py --shot 5 --train-way 30 --save-path ./save/proto-5`
 
 ### 5-shot Test
 
 `python test.py --load ./save/proto-5/max-acc.pth --shot 5`  
 
+
+
+### to see the acc log
+
+`python show-logresult.py --load ./save/proto-5/trlog`  
 
 ## Acknowledgment  
 
