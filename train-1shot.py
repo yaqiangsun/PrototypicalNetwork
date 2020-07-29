@@ -65,9 +65,7 @@ if __name__ == '__main__':
         tl = Averager()
         ta = Averager()
 
-        print("model.learnable_scale:", model.learnable_scale)
         for i, batch in enumerate(train_loader, 1):
-
             data, _ = [_.cuda() for _ in batch]
             p = args.shot * args.train_way
             data_shot, data_query = data[:p], data[p:]
@@ -81,21 +79,15 @@ if __name__ == '__main__':
             logits = euclidean_metric(model(data_query), proto)
 
             # modify, to get better result!!!!
-            if(args.shot==1):
-                feature_dims = 256 # 1600 for miniimagenet, 64 for omniglot
-                # learnable_scale = torch.nn.Parameter(torch.FloatTensor(1).fill_(1.0),requires_grad=True).cuda()
-                logits = model.learnable_scale * logits / feature_dims
-            else:
-                feature_dims = 32
-                # logits = logits / feature_dims
-                logits = model.learnable_scale * logits / feature_dims
+            feature_dims = 1600 # 1600 for miniimagenet, 64 for omniglot
+            learnable_scale = torch.nn.Parameter(torch.FloatTensor(1).fill_(1.0),requires_grad=True).cuda()
+            logits = learnable_scale * logits / feature_dims
 
 
             loss = F.cross_entropy(logits, label)
             acc = count_acc(logits, label)
-            if i%20==0:
-                print('epoch {}, train {}/{}, loss={:.4f} acc={:.4f}'
-                      .format(epoch, i, len(train_loader), loss.item(), acc))
+            print('epoch {}, train {}/{}, loss={:.4f} acc={:.4f}'
+                  .format(epoch, i, len(train_loader), loss.item(), acc))
 
             tl.add(loss.item())
             ta.add(acc)
@@ -128,19 +120,6 @@ if __name__ == '__main__':
             label = label.type(torch.cuda.LongTensor)
 
             logits = euclidean_metric(model(data_query), proto)
-
-            # modify, to get better result!!!!
-            if (args.shot == 1):
-                feature_dims = 256  # 1600 for miniimagenet, 64 for omniglot
-                # learnable_scale = torch.nn.Parameter(torch.FloatTensor(1).fill_(1.0),requires_grad=True).cuda()
-                logits = model.learnable_scale * logits / feature_dims
-            else:
-                feature_dims = 32
-                # logits = logits / feature_dims
-                logits = model.learnable_scale * logits / feature_dims
-
-
-
             loss = F.cross_entropy(logits, label)
             acc = count_acc(logits, label)
 

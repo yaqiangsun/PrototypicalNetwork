@@ -1,0 +1,24 @@
+训练结果记录
+running:
+
+30way5shot-train,5way-5shot-test,modify code version(Parameter,feature_dims=32):    very quick!	val acc:0.6834,test acc:68.11, stored in save-1/proto-5-modify-feature_dims64
+
+
+
+
+finished:
+20way5shot-train,5way-5shot-test,origin code version:	val acc:0.6637,test acc:0.6718, stored in save-1/proto-5-20way-origin-best
+							val acc:,test acc:, stored in save-1/proto-5-20way-origin
+
+30way5shot-train,5way-5shot-test,origin code version:	val acc:0.6643,test acc:67.41, stored in save-1/proto-5-30way-origin-best
+
+30way5shot-train,5way-5shot-test,modify code version(only feature_dims=1600):	very slow!!
+
+30way5shot-train,5way-5shot-test,modify code version(Parameter,feature_dims=64):    very quick!	val acc:67.2,test acc:67.6, stored in save-1/proto-5-modify-best
+
+
+
+30way1shot-train,5way-1shot-test,origin code version:	val acc:,test acc:48.2, stored in save-1/proto-1
+
+30way1shot-train,5way-1shot-test,modify code version(Parameter and feature_dims=1600):	 val acc:0.5097,test acc:49.91, stored in save-1/proto-1-modify
+30way1shot-train,5way-1shot-test,modify code version(Parameter and feature_dims=256):	 very quick! val acc:0.5097,test acc:50.17, stored in save-1/proto-1-modify-feature_dims256

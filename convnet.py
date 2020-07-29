@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 
 
 def conv_block(in_channels, out_channels):
@@ -23,6 +24,9 @@ class Convnet(nn.Module):
             conv_block(hid_dim, z_dim),
         )
         self.out_channels = 1600
+
+        self.learnable_scale = torch.nn.Parameter(torch.FloatTensor(1).fill_(1.0),requires_grad=True)
+
 
     def forward(self, x):
         x = self.encoder(x)
